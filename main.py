@@ -36,9 +36,6 @@ graph_config = {
 
 #### Post to Graph ####
 
-final_graph_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/graph1"
-
-
 def new():
     date = input("NEW ENTRY SELECTED. please enter the date you coded (FORMAT = yyyyMMdd)\n")
     quantity = input("please enter the length of time in hours you coded\n")
@@ -47,6 +44,7 @@ def new():
         "date": date,
         "quantity": quantity
     }
+    final_graph_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/graph1"
     post_to_graph = requests.post(url=final_graph_endpoint, json=date_and_quantity, headers=headers)
     print(post_to_graph.text)
 
